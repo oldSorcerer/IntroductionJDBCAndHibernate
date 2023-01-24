@@ -3,29 +3,18 @@ import model.User;
 
 import org.junit.jupiter.api.Test;
 import service.UserService;
-import service.UserServiceImpl;
+import service.UserServiceJDBCImpl;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserServiceTest {
-    private final UserService userService = new UserServiceImpl();
+public class UserServiceJDBCImplTest {
+    private final UserService userService = new UserServiceJDBCImpl();
 
     private final String testName = "Ivan";
     private final String testLastName = "Ivanov";
-    private final byte testAge = 5;
-
-
-    @Test
-    public void dropUsersTable() {
-        try {
-            userService.dropUsersTable();
-            userService.dropUsersTable();
-        } catch (Exception e) {
-            fail("При тестировании удаления таблицы произошло исключение\n" + e);
-        }
-    }
+    private final byte testAge = 25;
 
     @Test
     public void createUsersTable() {
@@ -34,6 +23,16 @@ public class UserServiceTest {
             userService.createUsersTable();
         } catch (Exception e) {
             fail("При тестировании создания таблицы пользователей произошло исключение\n" + e.getMessage());
+        }
+    }
+
+    @Test
+    public void dropUsersTable() {
+        try {
+            userService.dropUsersTable();
+            userService.dropUsersTable();
+        } catch (Exception e) {
+            fail("При тестировании удаления таблицы произошло исключение\n" + e);
         }
     }
 
@@ -48,11 +47,9 @@ public class UserServiceTest {
 
             if (!testName.equals(user.getName())
                     || !testLastName.equals(user.getLastName())
-                    || testAge != user.getAge()
-            ) {
+                    || testAge != user.getAge()) {
                 fail("User был некорректно добавлен в базу данных");
             }
-
         } catch (Exception e) {
             fail("Во время тестирования сохранения пользователя произошло исключение\n" + e);
         }
