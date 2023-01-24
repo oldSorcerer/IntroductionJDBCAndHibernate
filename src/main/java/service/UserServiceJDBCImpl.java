@@ -6,9 +6,9 @@ import model.User;
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceJDBCImpl implements UserService {
 
-    UserDao userDao = new UserDaoJDBCImpl();
+    private final UserDao userDao = new UserDaoJDBCImpl();
 
     public void createUsersTable() {
         userDao.createUsersTable();
