@@ -32,7 +32,7 @@ public class UserServiceJDBCImplTest {
             userService.dropUsersTable();
             userService.dropUsersTable();
         } catch (Exception e) {
-            fail("При тестировании удаления таблицы произошло исключение\n" + e);
+            fail("При тестировании удаления таблицы произошло исключение\n" + e.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class UserServiceJDBCImplTest {
                 fail("User был некорректно добавлен в базу данных");
             }
         } catch (Exception e) {
-            fail("Во время тестирования сохранения пользователя произошло исключение\n" + e);
+            fail("Во время тестирования сохранения пользователя произошло исключение\n" + e.getMessage());
         }
     }
 
@@ -63,7 +63,7 @@ public class UserServiceJDBCImplTest {
             userService.saveUser(testName, testLastName, testAge);
             userService.removeUserById(1L);
         } catch (Exception e) {
-            fail("При тестировании удаления пользователя по id произошло исключение\n" + e);
+            fail("При тестировании удаления пользователя по id произошло исключение\n" + e.getMessage());
         }
     }
 
@@ -79,7 +79,7 @@ public class UserServiceJDBCImplTest {
                 fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
             }
         } catch (Exception e) {
-            fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e);
+            fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e.getMessage());
         }
     }
 
@@ -95,8 +95,7 @@ public class UserServiceJDBCImplTest {
                 fail("Метод очищения таблицы пользователей реализован не корректно");
             }
         } catch (Exception e) {
-            fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e);
+            fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e.getMessage());
         }
     }
-
 }
