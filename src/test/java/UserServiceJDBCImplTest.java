@@ -14,7 +14,7 @@ public class UserServiceJDBCImplTest {
 
     private final String testName = "Ivan";
     private final String testLastName = "Ivanov";
-    private final byte testAge = 25;
+    private final Byte testAge = 25;
 
     @Test
     public void createUsersTable() {
@@ -29,7 +29,7 @@ public class UserServiceJDBCImplTest {
     @Test
     public void dropUsersTable() {
         try {
-            userService.dropUsersTable();
+//            userService.dropUsersTable();
             userService.dropUsersTable();
         } catch (Exception e) {
             fail("При тестировании удаления таблицы произошло исключение\n" + e.getMessage());
@@ -47,7 +47,7 @@ public class UserServiceJDBCImplTest {
 
             if (!testName.equals(user.getName())
                     || !testLastName.equals(user.getLastName())
-                    || testAge != user.getAge()) {
+                    || testAge.equals(user.getAge())) {
                 fail("User был некорректно добавлен в базу данных");
             }
         } catch (Exception e) {
