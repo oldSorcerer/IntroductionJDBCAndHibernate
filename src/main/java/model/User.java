@@ -1,6 +1,7 @@
 package model;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 
 @Entity
 @Table(name = "user")
@@ -16,12 +18,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
     @Column
-    private String name;
+    String name;
     @Column
-    private String lastName;
+    String lastName;
     @Column
-    private Byte age;
+    Byte age;
 
 }
