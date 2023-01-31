@@ -93,6 +93,8 @@ public class UserDaoHibernateImpl implements UserDao {
             Transaction transaction = session.beginTransaction();
             session.createSQLQuery(sql).executeUpdate();
             transaction.commit();
+        }catch (HibernateException e) {
+            throw new RuntimeException(e);
         }
     }
 }
