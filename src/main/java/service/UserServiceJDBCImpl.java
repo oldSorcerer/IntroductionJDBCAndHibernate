@@ -18,11 +18,11 @@ public class UserServiceJDBCImpl implements UserService {
         userDao.dropUsersTable();
     }
 
-    public void saveUser(String name, String lastName, Byte age) {
+    public void saveUser(String name, String lastName, byte age) {
         userDao.saveUser(name, lastName, age);
     }
 
-    public void removeUserById(Long id) {
+    public void removeUserById(long id) {
         userDao.removeUserById(id);
     }
 

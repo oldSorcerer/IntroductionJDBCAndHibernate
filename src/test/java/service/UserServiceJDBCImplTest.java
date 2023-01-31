@@ -1,20 +1,20 @@
+package service;
 
 import model.User;
 
 import org.junit.jupiter.api.Test;
-import service.UserService;
-import service.UserServiceJDBCImpl;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserServiceJDBCImplTest {
+
     private final UserService userService = new UserServiceJDBCImpl();
 
     private final String testName = "Ivan";
     private final String testLastName = "Ivanov";
-    private final Byte testAge = 25;
+    private final byte testAge = 25;
 
     @Test
     public void createUsersTable() {
@@ -47,7 +47,7 @@ public class UserServiceJDBCImplTest {
 
             if (!testName.equals(user.getName())
                     || !testLastName.equals(user.getLastName())
-                    || testAge.equals(user.getAge())) {
+                    || testAge != user.getAge()) {
                 fail("User был некорректно добавлен в базу данных");
             }
         } catch (Exception e) {

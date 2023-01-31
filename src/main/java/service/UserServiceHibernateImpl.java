@@ -2,7 +2,6 @@ package service;
 
 import dao.UserDao;
 import dao.UserDaoHibernateImpl;
-import dao.UserDaoJDBCImpl;
 import model.User;
 
 import java.util.List;
@@ -19,11 +18,11 @@ public class UserServiceHibernateImpl implements UserService {
         userDao.dropUsersTable();
     }
 
-    public void saveUser(String name, String lastName, Byte age) {
+    public void saveUser(String name, String lastName, byte age) {
         userDao.saveUser(name, lastName, age);
     }
 
-    public void removeUserById(Long id) {
+    public void removeUserById(long id) {
         userDao.removeUserById(id);
     }
 

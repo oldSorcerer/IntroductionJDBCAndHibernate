@@ -20,7 +20,6 @@ public class Util {
 
     private static SessionFactory sessionFactory;
 
-
     public static Connection getJDBCConnection() {
         Connection connection;
         try {
