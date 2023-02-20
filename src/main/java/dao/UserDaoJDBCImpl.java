@@ -12,7 +12,7 @@ public class UserDaoJDBCImpl implements UserDao {
     private final Connection connection = Util.getJDBCConnection();
 
     @Override
-    public void createUsersTable() {
+    public void createUserTable() {
         String sql = "CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT, name VARCHAR(45), lastName VARCHAR(45), age TINYINT(3) )";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
@@ -22,7 +22,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     @Override
-    public void dropUsersTable() {
+    public void dropUserTable() {
         String sql = "DROP TABLE IF EXISTS users";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
@@ -95,7 +95,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     @Override
-    public void cleanUsersTable() {
+    public void cleanUserTable() {
         String sql = "TRUNCATE TABLE users";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);

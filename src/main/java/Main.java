@@ -15,7 +15,7 @@ public class Main {
     private static void scriptJDBC() {
         Util.getHibernateConnection();
         UserDao userDao = new UserDaoJDBCImpl();
-        userDao.createUsersTable();
+        userDao.createUserTable();
 
         userDao.saveUser("Елена", "Иванова", (byte) 20);
         userDao.saveUser("Павел", "Захаров", (byte) 25);
@@ -26,15 +26,15 @@ public class Main {
         for (User user : allUsers) {
             System.out.println(user);
         }
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+        userDao.cleanUserTable();
+        userDao.dropUserTable();
     }
 
     private static void scriptHibernate() {
         Util.getHibernateConnection();
 
         UserDao userDao = new UserDaoHibernateImpl();
-        userDao.createUsersTable();
+        userDao.createUserTable();
 
         userDao.saveUser("Елена", "Иванова", (byte) 20);
         userDao.saveUser("Павел", "Захаров", (byte) 25);
@@ -45,8 +45,8 @@ public class Main {
         for (User user : allUsers) {
             System.out.println(user);
         }
-        userDao.cleanUsersTable();
-        userDao.dropUsersTable();
+        userDao.cleanUserTable();
+        userDao.dropUserTable();
 
     }
 }
