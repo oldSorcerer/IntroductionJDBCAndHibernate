@@ -10,12 +10,12 @@ public class UserServiceHibernateImpl implements UserService {
 
     private final UserDao userDao = new UserDaoHibernateImpl();
 
-    public void createUsersTable() {
-        userDao.createUsersTable();
+    public void createUserTable() {
+        userDao.createUserTable();
     }
 
-    public void dropUsersTable() {
-        userDao.dropUsersTable();
+    public void dropUserTable() {
+        userDao.dropUserTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
@@ -30,7 +30,7 @@ public class UserServiceHibernateImpl implements UserService {
         return userDao.getAllUsers();
     }
 
-    public void cleanUsersTable() {
-        userDao.cleanUsersTable();
+    public void clearUserTable() {
+        userDao.cleanUserTable();
     }
 }

@@ -17,20 +17,20 @@ public class UserServiceJDBCImplTest {
     private final byte testAge = 25;
 
     @Test
-    public void createUsersTable() {
+    public void createUserTable() {
         try {
-            userService.dropUsersTable();
-            userService.createUsersTable();
+            userService.dropUserTable();
+            userService.createUserTable();
         } catch (Exception e) {
             fail("При тестировании создания таблицы пользователей произошло исключение\n" + e.getMessage());
         }
     }
 
     @Test
-    public void dropUsersTable() {
+    public void dropUserTable() {
         try {
 //            userService.dropUsersTable();
-            userService.dropUsersTable();
+            userService.dropUserTable();
         } catch (Exception e) {
             fail("При тестировании удаления таблицы произошло исключение\n" + e.getMessage());
         }
@@ -39,8 +39,8 @@ public class UserServiceJDBCImplTest {
     @Test
     public void saveUser() {
         try {
-            userService.dropUsersTable();
-            userService.createUsersTable();
+            userService.dropUserTable();
+            userService.createUserTable();
             userService.saveUser(testName, testLastName, testAge);
 
             User user = userService.getAllUsers().get(0);
@@ -58,8 +58,8 @@ public class UserServiceJDBCImplTest {
     @Test
     public void removeUserById() {
         try {
-            userService.dropUsersTable();
-            userService.createUsersTable();
+            userService.dropUserTable();
+            userService.createUserTable();
             userService.saveUser(testName, testLastName, testAge);
             userService.removeUserById(1L);
         } catch (Exception e) {
@@ -70,8 +70,8 @@ public class UserServiceJDBCImplTest {
     @Test
     public void getAllUsers() {
         try {
-            userService.dropUsersTable();
-            userService.createUsersTable();
+            userService.dropUserTable();
+            userService.createUserTable();
             userService.saveUser(testName, testLastName, testAge);
             List<User> userList = userService.getAllUsers();
 
@@ -84,12 +84,12 @@ public class UserServiceJDBCImplTest {
     }
 
     @Test
-    public void cleanUsersTable() {
+    public void cleanUserTable() {
         try {
-            userService.dropUsersTable();
-            userService.createUsersTable();
+            userService.dropUserTable();
+            userService.createUserTable();
             userService.saveUser(testName, testLastName, testAge);
-            userService.cleanUsersTable();
+            userService.clearUserTable();
 
             if (userService.getAllUsers().size() != 0) {
                 fail("Метод очищения таблицы пользователей реализован не корректно");

@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface UserDao {
 
-    void createUsersTable();
+    void createUserTable();
 
-    void dropUsersTable();
+    void dropUserTable();
 
     void saveUser(String name, String lastName, byte age);
 
@@ -16,6 +16,6 @@ public interface UserDao {
 
     List<User> getAllUsers();
 
-    void cleanUsersTable();
+    void cleanUserTable();
 
 }
