@@ -83,7 +83,7 @@ class UserServiceHibernateImplTest {
     }
 
     @Test
-    public void cleanUserTable() {
+    public void clearUserTable() {
         try {
             userService.dropUserTable();
             userService.createUserTable();
