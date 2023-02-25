@@ -13,7 +13,7 @@ public class Main {
     }
 
     private static void scriptJDBC() {
-        Util.getHibernateConnection();
+        Util.getJDBCConnection();
         UserDao userDao = new UserDaoJDBCImpl();
         userDao.createUserTable();
 
@@ -26,7 +26,7 @@ public class Main {
         for (User user : allUsers) {
             System.out.println(user);
         }
-        userDao.cleanUserTable();
+        userDao.clearUserTable();
         userDao.dropUserTable();
     }
 
@@ -45,7 +45,7 @@ public class Main {
         for (User user : allUsers) {
             System.out.println(user);
         }
-        userDao.cleanUserTable();
+        userDao.clearUserTable();
         userDao.dropUserTable();
 
     }

@@ -16,6 +16,5 @@ public interface UserDao {
 
     List<User> getAllUsers();
 
-    void cleanUserTable();
-
+    void clearUserTable();
 }

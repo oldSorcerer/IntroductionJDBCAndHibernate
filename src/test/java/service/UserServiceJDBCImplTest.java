@@ -84,7 +84,7 @@ public class UserServiceJDBCImplTest {
     }
 
     @Test
-    public void cleanUserTable() {
+    public void clearUserTable() {
         try {
             userService.dropUserTable();
             userService.createUserTable();
