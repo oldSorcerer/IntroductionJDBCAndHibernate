@@ -31,6 +31,6 @@ public class UserServiceHibernateImpl implements UserService {
     }
 
     public void clearUserTable() {
-        userDao.cleanUserTable();
+        userDao.clearUserTable();
     }
 }
