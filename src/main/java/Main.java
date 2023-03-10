@@ -8,8 +8,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        scriptJDBC();
-        scriptHibernate();
+//        scriptJDBC();
+//        scriptHibernate();
+        Util.getSessionFactoryProperties();
     }
 
     private static void scriptJDBC() {
