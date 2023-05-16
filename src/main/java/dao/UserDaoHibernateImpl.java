@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
 
-    private final SessionFactory sessionFactory = Util.getSessionFactory();
+    private final SessionFactory sessionFactory = Util.getHibernateConnection();
 
     @Override
     public void createUserTable() {
@@ -75,7 +75,7 @@ public class UserDaoHibernateImpl implements UserDao {
         List<User> users;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            users = session.createQuery("from User", User.class).list();
+            users = session.createQuery("from User").list();
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null) {
