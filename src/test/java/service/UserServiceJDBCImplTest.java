@@ -2,19 +2,23 @@ package service;
 
 import model.User;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserServiceJDBCImplTest {
+public class UserServiceJDBCImplTest extends UserServiceTest {
 
     private final UserService userService = new UserServiceJDBCImpl();
 
-    private final String testName = "Ivan";
-    private final String testLastName = "Ivanov";
-    private final byte testAge = 25;
+    @BeforeEach
+    public void testTuning() {
+        userService.dropUserTable();
+        userService.createUserTable();
+        userService.saveUser(getTestName(), getTestLastName(), getTestAge());
+    }
 
     @Test
     public void createUserTable() {
@@ -39,15 +43,12 @@ public class UserServiceJDBCImplTest {
     @Test
     public void saveUser() {
         try {
-            userService.dropUserTable();
-            userService.createUserTable();
-            userService.saveUser(testName, testLastName, testAge);
 
             User user = userService.getAllUsers().get(0);
 
-            if (!testName.equals(user.getName())
-                    || !testLastName.equals(user.getLastName())
-                    || testAge != user.getAge()) {
+            if (!getTestName().equals(user.getName())
+                    || !getTestLastName().equals(user.getLastName())
+                    || getTestAge() != user.getAge()) {
                 fail("User был некорректно добавлен в базу данных");
             }
         } catch (Exception e) {
@@ -58,9 +59,7 @@ public class UserServiceJDBCImplTest {
     @Test
     public void removeUserById() {
         try {
-            userService.dropUserTable();
-            userService.createUserTable();
-            userService.saveUser(testName, testLastName, testAge);
+
             userService.removeUserById(1L);
         } catch (Exception e) {
             fail("При тестировании удаления пользователя по id произошло исключение\n" + e.getMessage());
@@ -70,9 +69,7 @@ public class UserServiceJDBCImplTest {
     @Test
     public void getAllUsers() {
         try {
-            userService.dropUserTable();
-            userService.createUserTable();
-            userService.saveUser(testName, testLastName, testAge);
+
             List<User> userList = userService.getAllUsers();
 
             if (userList.size() != 1) {
@@ -86,9 +83,7 @@ public class UserServiceJDBCImplTest {
     @Test
     public void clearUserTable() {
         try {
-            userService.dropUserTable();
-            userService.createUserTable();
-            userService.saveUser(testName, testLastName, testAge);
+
             userService.clearUserTable();
 
             if (userService.getAllUsers().size() != 0) {
