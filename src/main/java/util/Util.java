@@ -1,5 +1,7 @@
 package util;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -12,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Util {
 
     private static final String URL = "jdbc:mysql://localhost:3306/test";
@@ -19,9 +22,6 @@ public class Util {
     private static final String PASSWORD = "root";
 
     private static SessionFactory sessionFactory;
-
-    private Util() {
-    }
 
     public static Connection getJDBCConnection() {
         Connection connection;
