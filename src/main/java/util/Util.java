@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Util {
+public final class Util {
 
     private static final String URL = "jdbc:mysql://localhost:3306/test";
     private static final String USER_NAME = "root";
