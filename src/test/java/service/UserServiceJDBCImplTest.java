@@ -71,9 +71,9 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     public void getAllUsers() {
         try {
 
-            List<User> userList = userService.getAllUsers();
+            assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
 
-            assertFalse(userList.size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+//            List<User> userList = userService.getAllUsers();
 
 //            if (userList.size() != 1) {
 //                fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
@@ -90,7 +90,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
 
             userService.clearUserTable();
 
-            assertFalse(userService.getAllUsers().size() != 0, "Метод очищения таблицы пользователей реализован не корректно" );
+            assertFalse(userService.getAllUsers().size() != 0, "Метод очищения таблицы пользователей реализован не корректно");
 
 //            if (userService.getAllUsers().size() != 0) {
 //                fail("Метод очищения таблицы пользователей реализован не корректно");

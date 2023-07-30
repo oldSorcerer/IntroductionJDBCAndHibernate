@@ -70,11 +70,13 @@ class UserServiceHibernateImplTest extends UserServiceTest {
     public void getAllUsers() {
         try {
 
-            List<User> userList = userService.getAllUsers();
+            assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
 
-            if (userList.size() != 1) {
-                fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
-            }
+//            List<User> userList = userService.getAllUsers();
+
+//            if (userList.size() != 1) {
+//                fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+//            }
         } catch (Exception e) {
             fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e.getMessage());
         }
@@ -85,10 +87,11 @@ class UserServiceHibernateImplTest extends UserServiceTest {
         try {
 
             userService.clearUserTable();
+            assertFalse(userService.getAllUsers().size() != 0, "Метод очищения таблицы пользователей реализован не корректно");
 
-            if (userService.getAllUsers().size() != 0) {
-                fail("Метод очищения таблицы пользователей реализован не корректно");
-            }
+//            if (userService.getAllUsers().size() != 0) {
+//                fail("Метод очищения таблицы пользователей реализован не корректно");
+//            }
         } catch (Exception e) {
             fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e.getMessage());
         }
