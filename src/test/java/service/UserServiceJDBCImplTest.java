@@ -46,6 +46,8 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
 
             User user = userService.getAllUsers().get(0);
 
+            assertEquals(getTestName(), user.getName());
+
             if (!getTestName().equals(user.getName())
                     || !getTestLastName().equals(user.getLastName())
                     || getTestAge() != user.getAge()) {
@@ -59,7 +61,6 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     @Test
     public void removeUserById() {
         try {
-
             userService.removeUserById(1L);
         } catch (Exception e) {
             fail("При тестировании удаления пользователя по id произошло исключение\n" + e.getMessage());
@@ -72,9 +73,12 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
 
             List<User> userList = userService.getAllUsers();
 
-            if (userList.size() != 1) {
-                fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
-            }
+            assertFalse(userList.size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+
+//            if (userList.size() != 1) {
+//                fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+//            }
+
         } catch (Exception e) {
             fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e.getMessage());
         }
@@ -86,9 +90,11 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
 
             userService.clearUserTable();
 
-            if (userService.getAllUsers().size() != 0) {
-                fail("Метод очищения таблицы пользователей реализован не корректно");
-            }
+            assertFalse(userService.getAllUsers().size() != 0, "Метод очищения таблицы пользователей реализован не корректно" );
+
+//            if (userService.getAllUsers().size() != 0) {
+//                fail("Метод очищения таблицы пользователей реализован не корректно");
+//            }
         } catch (Exception e) {
             fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e.getMessage());
         }

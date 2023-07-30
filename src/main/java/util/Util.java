@@ -12,6 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Properties;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -36,7 +37,7 @@ public final class Util {
     }
 
     public static SessionFactory getHibernateConnection() {
-        if (sessionFactory == null) {
+        if (Objects.isNull(sessionFactory)) {
             try {
                 Configuration configuration = new Configuration();
 
@@ -66,7 +67,7 @@ public final class Util {
     }
 
     public static SessionFactory getSessionFactoryProperties() {
-        if (sessionFactory == null) {
+        if (Objects.isNull(sessionFactory)) {
             try {
                 Configuration configuration = new Configuration();
                 configuration.addAnnotatedClass(User.class);
@@ -81,7 +82,7 @@ public final class Util {
     }
 
     public static SessionFactory getSessionFactory() {
-        if (sessionFactory == null) {
+        if (Objects.isNull(sessionFactory)) {
             try {
                 Configuration configuration = new Configuration().configure();
                 sessionFactory = configuration.buildSessionFactory();
