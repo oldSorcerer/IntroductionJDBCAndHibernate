@@ -41,10 +41,11 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     @Test
     public void saveUser() {
         try {
-
             User user = userService.getAllUsers().get(0);
 
             assertEquals(getTestName(), user.getName());
+            assertEquals(getTestLastName(), user.getLastName());
+            assertEquals(getTestAge(), user.getAge());
 
 //            if (!getTestName().equals(user.getName())
 //                    || !getTestLastName().equals(user.getLastName())
