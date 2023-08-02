@@ -5,6 +5,7 @@ import org.hibernate.*;
 import util.Util;
 
 import java.util.List;
+import java.util.Objects;
 
 public class UserDaoHibernateImpl implements UserDao {
 
@@ -59,7 +60,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.delete(user);
             transaction.commit();
         } catch (HibernateException e) {
-            if (transaction != null) {
+            if (Objects.nonNull(transaction)) {
                 transaction.rollback();
             }
             throw new RuntimeException(e);
@@ -72,10 +73,10 @@ public class UserDaoHibernateImpl implements UserDao {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            users = session.createQuery("from User").list();
+            users = session.createQuery("from User", User.class).list();
             transaction.commit();
         } catch (HibernateException e) {
-            if (transaction != null) {
+            if (Objects.nonNull(transaction)) {
                 transaction.rollback();
             }
             throw new RuntimeException(e);

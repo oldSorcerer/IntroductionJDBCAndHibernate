@@ -2,6 +2,8 @@ import dao.UserDao;
 import dao.UserDaoHibernateImpl;
 import dao.UserDaoJDBCImpl;
 import model.User;
+import service.UserService;
+import service.UserServiceHibernateImpl;
 import util.Util;
 
 import java.util.List;
@@ -10,7 +12,10 @@ public class Main {
     public static void main(String[] args) {
 //        scriptJDBC();
 //        scriptHibernate();
-        Util.getSessionFactoryProperties();
+//        Util.getSessionFactoryProperties();
+
+        UserService userService = new UserServiceHibernateImpl();
+
     }
 
     private static void scriptJDBC() {

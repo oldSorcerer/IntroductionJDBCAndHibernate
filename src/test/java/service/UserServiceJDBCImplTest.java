@@ -5,8 +5,6 @@ import model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserServiceJDBCImplTest extends UserServiceTest {
@@ -43,16 +41,17 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     @Test
     public void saveUser() {
         try {
-
             User user = userService.getAllUsers().get(0);
 
             assertEquals(getTestName(), user.getName());
+            assertEquals(getTestLastName(), user.getLastName());
+            assertEquals(getTestAge(), user.getAge());
 
-            if (!getTestName().equals(user.getName())
-                    || !getTestLastName().equals(user.getLastName())
-                    || getTestAge() != user.getAge()) {
-                fail("User был некорректно добавлен в базу данных");
-            }
+//            if (!getTestName().equals(user.getName())
+//                    || !getTestLastName().equals(user.getLastName())
+//                    || getTestAge() != user.getAge()) {
+//                fail("User был некорректно добавлен в базу данных");
+//            }
         } catch (Exception e) {
             fail("Во время тестирования сохранения пользователя произошло исключение\n" + e.getMessage());
         }
