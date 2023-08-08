@@ -61,8 +61,8 @@ class UserServiceHibernateImplTest extends UserServiceTest {
     @Test
     public void removeUserById() {
         try {
-
             userService.removeUserById(1L);
+            assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
         } catch (Exception e) {
             fail("При тестировании удаления пользователя по id произошло исключение\n" + e.getMessage());
         }
