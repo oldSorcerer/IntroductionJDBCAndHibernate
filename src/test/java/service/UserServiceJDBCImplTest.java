@@ -12,14 +12,14 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     private final UserService userService = new UserServiceJDBCImpl();
 
     @BeforeEach
-    public void testTuning() {
+    void testTuning() {
         userService.dropUserTable();
         userService.createUserTable();
         userService.saveUser(getTestName(), getTestLastName(), getTestAge());
     }
 
     @Test
-    public void createUserTable() {
+    void createUserTable() {
         try {
             userService.dropUserTable();
             userService.createUserTable();
@@ -29,7 +29,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     }
 
     @Test
-    public void dropUserTable() {
+    void dropUserTable() {
         try {
 //            userService.dropUsersTable();
             userService.dropUserTable();
@@ -39,7 +39,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     }
 
     @Test
-    public void saveUser() {
+    void saveUser() {
         try {
             User user = userService.getAllUsers().get(0);
 
@@ -58,7 +58,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     }
 
     @Test
-    public void removeUserById() {
+    void removeUserById() {
         try {
             userService.removeUserById(1L);
             assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
@@ -68,7 +68,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     }
 
     @Test
-    public void getAllUsers() {
+    void getAllUsers() {
         try {
 
             assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
@@ -85,7 +85,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     }
 
     @Test
-    public void clearUserTable() {
+    void clearUserTable() {
         try {
 
             userService.clearUserTable();

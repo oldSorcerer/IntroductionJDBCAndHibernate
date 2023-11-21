@@ -8,8 +8,8 @@ import lombok.experimental.FieldDefaults;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserServiceTest {
 
-    private final String testName = "Ivan";
-    private final String testLastName = "Ivanov";
-    private final byte testAge = 25;
+    String testName = "Ivan";
+    String testLastName = "Ivanov";
+    byte testAge = 25;
 
 }
