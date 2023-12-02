@@ -2,13 +2,16 @@ package service;
 
 import dao.UserDao;
 import dao.UserDaoJDBCImpl;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import model.User;
 
 import java.util.List;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserServiceJDBCImpl implements UserService {
 
-    private final UserDao userDao = new UserDaoJDBCImpl();
+    UserDao userDao = new UserDaoJDBCImpl();
 
     public void createUserTable() {
         userDao.createUserTable();
