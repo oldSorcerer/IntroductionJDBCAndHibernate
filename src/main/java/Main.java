@@ -31,9 +31,8 @@ public class Main {
         userService.saveUser("Дмитрий", "Васильев", (byte) 38);
 
         List<User> allUsers = userService.getAllUsers();
-        for (User user : allUsers) {
-            System.out.println(user);
-        }
+        allUsers.forEach(System.out::println);
+
         userService.clearUserTable();
         userService.dropUserTable();
     }
