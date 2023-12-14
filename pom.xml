@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <version.lombok>1.18.24</version.lombok>
-        <version.junit>5.9.0</version.junit>
+        <version.junit>5.10.0</version.junit>
         <version.postgresql>42.5.1</version.postgresql>
         <version.mysql>8.0.33</version.mysql>
         <version.jpa>1.0.2.Final</version.jpa>
