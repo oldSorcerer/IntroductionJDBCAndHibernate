@@ -1,20 +1,14 @@
-import dao.UserDao;
-import dao.UserDaoHibernateImpl;
-import dao.UserDaoJDBCImpl;
-import model.User;
 import service.UserService;
 import service.UserServiceHibernateImpl;
 import service.UserServiceJDBCImpl;
 import util.Util;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         Util.getJDBCConnection();
         Util.getHibernateConnection();
-//        Util.getSessionFactoryProperties();
-//        Util.getSessionFactory();
+        Util.getSessionFactoryProperties();
+        Util.getSessionFactory();
 
         script(new UserServiceJDBCImpl());
         script(new UserServiceHibernateImpl());
@@ -30,10 +24,15 @@ public class Main {
         userService.saveUser("Мария", "Польских", (byte) 31);
         userService.saveUser("Дмитрий", "Васильев", (byte) 38);
 
-        List<User> allUsers = userService.getAllUsers();
-        allUsers.forEach(System.out::println);
+        System.out.println();
+        userService.getAllUsers().forEach(System.out::println);
+
+        userService.removeUserById(1L);
+        System.out.println();
+        userService.getAllUsers().forEach(System.out::println);
 
         userService.clearUserTable();
+
         userService.dropUserTable();
     }
 }
