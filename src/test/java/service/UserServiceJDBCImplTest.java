@@ -20,22 +20,26 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
 
     @Test
     void createUserTable() {
-        try {
-            userService.dropUserTable();
-            userService.createUserTable();
-        } catch (Exception e) {
-            fail("При тестировании создания таблицы пользователей произошло исключение\n" + e.getMessage());
-        }
+        userService.dropUserTable();
+        assertDoesNotThrow(userService::createUserTable);
+
+//        try {
+//            userService.dropUserTable();
+//            userService.createUserTable();
+//        } catch (Exception e) {
+//            fail("При тестировании создания таблицы пользователей произошло исключение\n" + e.getMessage());
+//        }
     }
 
     @Test
     void dropUserTable() {
-        try {
-//            userService.dropUsersTable();
-            userService.dropUserTable();
-        } catch (Exception e) {
-            fail("При тестировании удаления таблицы произошло исключение\n" + e.getMessage());
-        }
+        assertDoesNotThrow(userService::dropUserTable);
+//        try {
+//            userService.dropUserTable();
+//            userService.dropUserTable();
+//        } catch (Exception e) {
+//            fail("При тестировании удаления таблицы произошло исключение\n" + e.getMessage());
+//        }
     }
 
     @Test
@@ -59,44 +63,53 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
 
     @Test
     void removeUserById() {
-        try {
-            userService.removeUserById(1L);
-            assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
-        } catch (Exception e) {
-            fail("При тестировании удаления пользователя по id произошло исключение\n" + e.getMessage());
-        }
+
+        userService.removeUserById(1L);
+        assertTrue(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
+
+//        try {
+//            userService.removeUserById(1L);
+//            assertTrue(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
+//        } catch (Exception e) {
+//            fail("При тестировании удаления пользователя по id произошло исключение\n" + e.getMessage());
+//        }
     }
 
     @Test
     void getAllUsers() {
-        try {
-
-            assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
-
+        assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+//        try {
+//
+//            assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+//
 //            List<User> userList = userService.getAllUsers();
-
+//
 //            if (userList.size() != 1) {
 //                fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
 //            }
 
-        } catch (Exception e) {
-            fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e.getMessage());
-        }
+//        } catch (Exception e) {
+//            fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e.getMessage());
+//        }
     }
 
     @Test
     void clearUserTable() {
-        try {
+        userService.clearUserTable();
 
-            userService.clearUserTable();
+        assertTrue(userService.getAllUsers().isEmpty(), "Метод очищения таблицы пользователей реализован не корректно");
 
-            assertFalse(userService.getAllUsers().size() != 0, "Метод очищения таблицы пользователей реализован не корректно");
-
+//        try {
+//
+//            userService.clearUserTable();
+//
+//            assertTrue(userService.getAllUsers().isEmpty(), "Метод очищения таблицы пользователей реализован не корректно");
+//
 //            if (userService.getAllUsers().size() != 0) {
 //                fail("Метод очищения таблицы пользователей реализован не корректно");
 //            }
-        } catch (Exception e) {
-            fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e.getMessage());
-        }
+//        } catch (Exception e) {
+//            fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e.getMessage());
+//        }
     }
 }
