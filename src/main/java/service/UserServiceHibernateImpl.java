@@ -22,7 +22,7 @@ public class UserServiceHibernateImpl implements UserService {
         userDao.saveUser(name, lastName, age);
     }
 
-    public void removeUserById(long id) {
+    public void removeUserById(Long id) {
         userDao.removeUserById(id);
     }
 

@@ -52,7 +52,7 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     @Override
-    public void removeUserById(long id) {
+    public void removeUserById(Long id) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
