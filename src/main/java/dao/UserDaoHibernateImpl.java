@@ -1,5 +1,6 @@
 package dao;
 
+import lombok.SneakyThrows;
 import model.User;
 import org.hibernate.*;
 import util.Util;
@@ -12,6 +13,7 @@ public class UserDaoHibernateImpl implements UserDao {
     private final SessionFactory sessionFactory = Util.getHibernateConnection();
 
     @Override
+//    @SneakyThrows
     public void createUserTable() {
         String sql = "CREATE TABLE IF NOT EXISTS user (id BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT, name VARCHAR(45), lastName VARCHAR(45), age TINYINT(3) )";
         try (Session session = sessionFactory.openSession()) {
@@ -24,6 +26,7 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     @Override
+//    @SneakyThrows
     public void dropUserTable() {
         String sql = "DROP TABLE IF EXISTS user";
         try (Session session = sessionFactory.openSession()) {
@@ -85,6 +88,7 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     @Override
+    @SneakyThrows
     public void clearUserTable() {
         String sql = "TRUNCATE TABLE user";
         try (Session session = sessionFactory.openSession()) {
