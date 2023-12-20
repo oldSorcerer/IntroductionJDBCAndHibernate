@@ -44,7 +44,7 @@ class UserServiceHibernateImplTest extends UserServiceTest {
 
     @Test
     void getAllUsers() {
-        assertFalse(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+        assertEquals(1, userService.getAllUsers().size(), "Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
     }
 
     @Test
