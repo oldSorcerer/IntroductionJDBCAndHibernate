@@ -39,7 +39,7 @@ class UserServiceHibernateImplTest extends UserServiceTest {
     @Test
     void removeUserById() {
         userService.removeUserById(1L);
-        assertTrue(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
+        assertTrue(userService.getAllUsers().isEmpty(), "Проверьте корректность работы метода удаления пользователя");
     }
 
     @Test
