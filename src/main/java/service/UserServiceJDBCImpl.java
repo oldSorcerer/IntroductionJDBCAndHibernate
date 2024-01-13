@@ -4,7 +4,7 @@ import dao.UserDao;
 import dao.UserDaoJDBCImpl;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import model.User;
+import bean.User;
 
 import java.util.List;
 

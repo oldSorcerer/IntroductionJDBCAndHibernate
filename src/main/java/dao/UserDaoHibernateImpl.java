@@ -1,7 +1,7 @@
 package dao;
 
 import lombok.SneakyThrows;
-import model.User;
+import bean.User;
 import org.hibernate.*;
 import util.Util;
 
