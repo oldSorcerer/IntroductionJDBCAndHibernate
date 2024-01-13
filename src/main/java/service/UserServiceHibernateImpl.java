@@ -2,7 +2,7 @@ package service;
 
 import dao.UserDao;
 import dao.UserDaoHibernateImpl;
-import model.User;
+import bean.User;
 
 import java.util.List;
 

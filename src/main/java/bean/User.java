@@ -1,4 +1,4 @@
-package model;
+package bean;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
