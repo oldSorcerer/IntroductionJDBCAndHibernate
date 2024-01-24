@@ -1,15 +1,18 @@
 package dao;
 
 import bean.User;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import util.Util;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserDaoJDBCImpl implements UserDao {
 
-    private final Connection connection = Util.getJDBCConnection();
+    Connection connection = Util.getJDBCConnection();
 
     @Override
     public void createUserTable() {
