@@ -1,16 +1,19 @@
 package dao;
 
+import lombok.AccessLevel;
 import lombok.SneakyThrows;
 import bean.User;
+import lombok.experimental.FieldDefaults;
 import org.hibernate.*;
 import util.Util;
 
 import java.util.List;
 import java.util.Objects;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserDaoHibernateImpl implements UserDao {
 
-    private final SessionFactory sessionFactory = Util.getHibernateConnection();
+    SessionFactory sessionFactory = Util.getHibernateConnection();
 
     @Override
 //    @SneakyThrows
