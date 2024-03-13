@@ -3,12 +3,15 @@ package service;
 import dao.UserDao;
 import dao.UserDaoHibernateImpl;
 import bean.User;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserServiceHibernateImpl implements UserService {
 
-    private final UserDao userDao = new UserDaoHibernateImpl();
+    UserDao userDao = new UserDaoHibernateImpl();
 
     public void createUserTable() {
         userDao.createUserTable();
