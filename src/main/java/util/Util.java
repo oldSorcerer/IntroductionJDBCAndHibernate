@@ -38,7 +38,7 @@ public final class Util {
 
     public static SessionFactory getHibernateConnection() {
         if (Objects.isNull(sessionFactory)) {
-            try {
+//            try {
                 Configuration configuration = new Configuration();
 
                 Properties properties = new Properties();
@@ -59,9 +59,9 @@ public final class Util {
                         .applySettings(configuration.getProperties()).build();
 
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
         }
         return sessionFactory;
     }

@@ -65,7 +65,7 @@ public class UserServiceJDBCImplTest extends UserServiceTest {
     void removeUserById() {
 
         userService.removeUserById(1L);
-        assertTrue(userService.getAllUsers().size() != 1, "Проверьте корректность работы метода удаления пользователя");
+        assertTrue(userService.getAllUsers().isEmpty(), "Проверьте корректность работы метода удаления пользователя");
 
 //        try {
 //            userService.removeUserById(1L);
