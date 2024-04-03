@@ -15,7 +15,7 @@
 
         <version.lombok>1.18.30</version.lombok>
         <version.junit>5.10.0</version.junit>
-        <version.postgresql>42.5.1</version.postgresql>
+        <version.postgresql>42.7.2</version.postgresql>
         <version.mysql>8.0.33</version.mysql>
         <version.jpa>1.0.2.Final</version.jpa>
         <version.hibernate>5.6.10.Final</version.hibernate>
