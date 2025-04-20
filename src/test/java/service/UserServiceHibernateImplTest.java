@@ -1,7 +1,9 @@
 package service;
 
-import bean.User;
+import org.example.bean.User;
 
+import org.example.service.UserService;
+import org.example.service.UserServiceHibernateImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

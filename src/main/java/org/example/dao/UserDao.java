@@ -1,10 +1,10 @@
-package service;
+package org.example.dao;
 
-import bean.User;
+import org.example.bean.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserDao {
 
     void createUserTable();
 
@@ -17,5 +17,4 @@ public interface UserService {
     List<User> getAllUsers();
 
     void clearUserTable();
-
 }

@@ -1,11 +1,11 @@
-package dao;
+package org.example.dao;
 
 import lombok.AccessLevel;
 import lombok.SneakyThrows;
-import bean.User;
+import org.example.bean.User;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.*;
-import util.Util;
+import org.example.util.Util;
 
 import java.util.List;
 import java.util.Objects;

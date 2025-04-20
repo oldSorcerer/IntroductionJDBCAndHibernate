@@ -1,8 +1,8 @@
-package util;
+package org.example.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import bean.User;
+import org.example.bean.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
