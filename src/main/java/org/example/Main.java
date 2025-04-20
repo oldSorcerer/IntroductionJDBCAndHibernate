@@ -1,17 +1,17 @@
-import service.UserService;
-import service.UserServiceHibernateImpl;
-import service.UserServiceJDBCImpl;
-import util.Util;
+package org.example;
+
+import org.example.service.UserService;
+import org.example.util.Util;
 
 public class Main {
     public static void main(String[] args) {
         Util.getJDBCConnection();
-        Util.getHibernateConnection();
-        Util.getSessionFactoryProperties();
-        Util.getSessionFactory();
-
-        script(new UserServiceJDBCImpl());
-        script(new UserServiceHibernateImpl());
+//        Util.getHibernateConnection();
+//        Util.getSessionFactoryProperties();
+//        Util.getSessionFactory();
+//
+//        script(new UserServiceJDBCImpl());
+//        script(new UserServiceHibernateImpl());
 
     }
 
@@ -24,13 +24,15 @@ public class Main {
         userService.saveUser("Мария", "Польских", (byte) 31);
         userService.saveUser("Дмитрий", "Васильев", (byte) 38);
 
-        System.out.println();
+        System.out.println("----------");
         userService.getAllUsers().forEach(System.out::println);
 
         userService.removeUserById(1L);
-        System.out.println();
+
+        System.out.println("----------");
         userService.getAllUsers().forEach(System.out::println);
 
+        System.out.println("----------");
         userService.clearUserTable();
 
         userService.dropUserTable();

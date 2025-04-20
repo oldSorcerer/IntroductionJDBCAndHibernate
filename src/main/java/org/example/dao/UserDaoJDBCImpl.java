@@ -1,9 +1,9 @@
-package dao;
+package org.example.dao;
 
-import bean.User;
+import org.example.bean.User;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import util.Util;
+import org.example.util.Util;
 
 import java.sql.*;
 import java.util.ArrayList;

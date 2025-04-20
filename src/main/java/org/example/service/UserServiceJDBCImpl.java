@@ -1,17 +1,17 @@
-package service;
+package org.example.service;
 
-import dao.UserDao;
-import dao.UserDaoHibernateImpl;
-import bean.User;
+import org.example.dao.UserDao;
+import org.example.dao.UserDaoJDBCImpl;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import org.example.bean.User;
 
 import java.util.List;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class UserServiceHibernateImpl implements UserService {
+public class UserServiceJDBCImpl implements UserService {
 
-    UserDao userDao = new UserDaoHibernateImpl();
+    UserDao userDao = new UserDaoJDBCImpl();
 
     public void createUserTable() {
         userDao.createUserTable();

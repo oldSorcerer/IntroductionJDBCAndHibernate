@@ -17,7 +17,7 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.format_sql">true</property>
 
-        <mapping class="bean.User"/>
+        <mapping class="org.example.bean.User"/>
 
     </session-factory>
 
